@@ -9,7 +9,8 @@ const content   = document.getElementById('content');
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+// let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
+let newDate = d.toLocaleString('en-US',({month: 'numeric' , day: 'numeric' , year: 'numeric'}));
 
 let eventFunc = () =>{
     const  zipCode   = document.getElementById('zip').value;
@@ -35,7 +36,7 @@ generate.addEventListener('click',eventFunc);
 
 // get data
 const getData = async(baseUrl, zipCode, key) =>{
-    const req = await fetch(`${baseUrl}${zipCode}&appid=${key}&units=metrics`);
+    const req = await fetch(`${baseUrl}${zipCode}&appid=${key}&units=metric`);
     try{
         const reqResult = await req.json();
         return reqResult;

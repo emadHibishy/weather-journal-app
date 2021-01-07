@@ -31,7 +31,7 @@ app.post('/addingData',(req, res, next)=>{
 });
 
 // Setup Server
-const port = 8080;
+const port = 8000;
 app.listen(port,()=>{
     console.log(`app running on port ${port}`);
 });
